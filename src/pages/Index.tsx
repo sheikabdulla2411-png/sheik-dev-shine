@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <AnimatedBackground />
-      <CustomCursor />
+      
       <Navbar />
       <HeroSection />
       <AboutSection />
