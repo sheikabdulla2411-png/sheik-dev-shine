@@ -86,13 +86,13 @@ const ContactSection = () => {
           >
             <p className="text-sm text-muted-foreground text-center">Connect with me</p>
             <div className="flex gap-4">
-              <a href="#" className="social-icon-btn" aria-label="GitHub">
+              <a href="https://github.com/sheikabdulla2411-png" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
                 <Github size={20} />
               </a>
-              <a href="#" className="social-icon-btn" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/a-sheik-abdulla-9baa662a" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:sheikabdulla@example.com" className="social-icon-btn" aria-label="Email">
+              <a href="mailto:sheikabdulla2411@gmail.com" className="social-icon-btn" aria-label="Email">
                 <Mail size={20} />
               </a>
             </div>
