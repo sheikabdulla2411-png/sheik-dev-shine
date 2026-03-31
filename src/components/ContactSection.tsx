@@ -1,16 +1,41 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Github, Linkedin, Mail, Rocket } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thanks for reaching out! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "686e28e4-2b8c-4cce-bfef-cef7624c85c0",
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        toast({ title: "Thanks! I'll get back to you soon 🚀" });
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        toast({ title: "Something went wrong, please try again!", variant: "destructive" });
+      }
+    } catch {
+      toast({ title: "Something went wrong, please try again!", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
