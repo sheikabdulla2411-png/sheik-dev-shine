@@ -98,8 +98,8 @@ const ContactSection = () => {
                 placeholder="Let's work together..."
               />
             </div>
-            <button type="submit" className="btn-primary-glow flex items-center gap-2 w-full justify-center">
-              <Send size={16} /> Send Message
+            <button type="submit" disabled={sending} className="btn-primary-glow flex items-center gap-2 w-full justify-center disabled:opacity-50">
+              <Send size={16} /> {sending ? "Sending..." : "Send Message"}
             </button>
           </motion.form>
 
