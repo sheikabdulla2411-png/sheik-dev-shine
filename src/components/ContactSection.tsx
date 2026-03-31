@@ -114,7 +114,7 @@ const ContactSection = () => {
               <a href="https://github.com/sheikabdulla2411-png" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
                 <Github size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/a-sheik-abdulla-9baa662a" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/a-sheik-abdulla-9baa662a4/" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
               <a href="mailto:sheikabdulla2411@gmail.com" className="social-icon-btn" aria-label="Email">
