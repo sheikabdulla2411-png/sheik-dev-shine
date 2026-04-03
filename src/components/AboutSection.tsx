@@ -39,7 +39,7 @@ const AboutSection = () => {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin size={16} className="text-primary" />
-              <span>Tiruchirappalli, Tamil Nadu</span>
+              <span>Pudukkottai, Tamil Nadu</span>
             </div>
           </div>
 
