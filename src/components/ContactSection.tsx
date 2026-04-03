@@ -122,7 +122,7 @@ const ContactSection = () => {
               </a>
             </div>
             <div className="text-xs text-muted-foreground text-center mt-4">
-              Tiruchirappalli, Tamil Nadu<br />India
+              Pudukkottai, Tamil Nadu<br />India
             </div>
           </motion.div>
         </div>
