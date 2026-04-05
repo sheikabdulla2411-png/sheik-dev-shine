@@ -75,7 +75,7 @@ const HeroSection = () => {
             <a href="#projects" className="btn-primary-glow flex items-center gap-2">
               <ArrowDown size={18} /> View My Work
             </a>
-            <a href="https://drive.google.com/file/d/1v88iN317QAJ2Oru3bcux1ogLlt88HDFF/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-outline-glow flex items-center gap-2">
+            <a href="https://drive.google.com/file/d/1sreXe6QQNrRZAKbXhMGMxvP0KlyxVvG8/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-outline-glow flex items-center gap-2">
               <Download size={18} /> Download Resume
             </a>
           </motion.div>
