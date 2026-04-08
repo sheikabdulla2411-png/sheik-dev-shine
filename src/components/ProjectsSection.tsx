@@ -10,6 +10,7 @@ const projects = [
     tags: ["MongoDB", "React", "Node.js", "REST API"],
     badge: null,
     showDemo: true,
+    showGithub: true,
   },
   {
     title: "Live Bus Tracking System",
