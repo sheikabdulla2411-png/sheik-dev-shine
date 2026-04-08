@@ -8,18 +8,24 @@ const projects = [
     stack: "MERN Stack (React, Node.js, Express, MongoDB)",
     description: "Full-stack web platform for citizens to submit feedback on rural development. Role-based dashboards for admin, officials, and citizens.",
     tags: ["MongoDB", "React", "Node.js", "REST API"],
+    badge: null,
+    showDemo: true,
   },
   {
     title: "Live Bus Tracking System",
     stack: "Android, Firebase, Google Maps API",
-    description: "Real-time bus location tracking app built with Firebase Realtime Database and Google Maps for commuters.",
+    description: "Built for academic purposes using Android Studio, Firebase, and Google Maps API. System architecture and documentation completed.",
     tags: ["Firebase", "Android", "Google Maps", "Real-time"],
+    badge: "Academic Project",
+    showDemo: false,
   },
   {
     title: "Object Detection Smart Glass (Hackathon)",
     stack: "Python, OpenCV, YOLO, MediaPipe",
-    description: "Prototype smart glass for visually impaired — detects objects in real-time using YOLO and OpenCV. Built for a hackathon.",
+    description: "Software prototype built for hackathon using Python, OpenCV, YOLO, and MediaPipe. Hardware implementation not included.",
     tags: ["Python", "YOLO", "OpenCV", "MediaPipe", "AI/ML"],
+    badge: "Academic Project",
+    showDemo: false,
   },
 ];
 
