@@ -57,7 +57,12 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="glass-card-hover p-6 flex flex-col"
             >
-              <div className="text-xs text-primary font-medium uppercase tracking-wider mb-2">{p.stack}</div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs text-primary font-medium uppercase tracking-wider">{p.stack}</span>
+                {p.badge && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent text-accent-foreground font-semibold uppercase tracking-wider">{p.badge}</span>
+                )}
+              </div>
               <h3 className="font-heading text-lg font-semibold text-foreground mb-3 leading-snug">{p.title}</h3>
               <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed">{p.description}</p>
               <div className="flex flex-wrap gap-2 mb-5">
@@ -69,9 +74,11 @@ const ProjectsSection = () => {
                 <a href="#" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
                   <Github size={14} /> GitHub
                 </a>
-                <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
-                  <ExternalLink size={14} /> Live Demo
-                </a>
+                {p.showDemo && (
+                  <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                    <ExternalLink size={14} /> Live Demo
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
