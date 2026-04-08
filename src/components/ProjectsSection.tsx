@@ -8,18 +8,24 @@ const projects = [
     stack: "MERN Stack (React, Node.js, Express, MongoDB)",
     description: "Full-stack web platform for citizens to submit feedback on rural development. Role-based dashboards for admin, officials, and citizens.",
     tags: ["MongoDB", "React", "Node.js", "REST API"],
+    badge: null,
+    showDemo: true,
   },
   {
     title: "Live Bus Tracking System",
     stack: "Android, Firebase, Google Maps API",
-    description: "Real-time bus location tracking app built with Firebase Realtime Database and Google Maps for commuters.",
+    description: "Built for academic purposes using Android Studio, Firebase, and Google Maps API. System architecture and documentation completed.",
     tags: ["Firebase", "Android", "Google Maps", "Real-time"],
+    badge: "Academic Project",
+    showDemo: false,
   },
   {
     title: "Object Detection Smart Glass (Hackathon)",
     stack: "Python, OpenCV, YOLO, MediaPipe",
-    description: "Prototype smart glass for visually impaired — detects objects in real-time using YOLO and OpenCV. Built for a hackathon.",
+    description: "Software prototype built for hackathon using Python, OpenCV, YOLO, and MediaPipe. Hardware implementation not included.",
     tags: ["Python", "YOLO", "OpenCV", "MediaPipe", "AI/ML"],
+    badge: "Academic Project",
+    showDemo: false,
   },
 ];
 
@@ -51,7 +57,12 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="glass-card-hover p-6 flex flex-col"
             >
-              <div className="text-xs text-primary font-medium uppercase tracking-wider mb-2">{p.stack}</div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs text-primary font-medium uppercase tracking-wider">{p.stack}</span>
+                {p.badge && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent text-accent-foreground font-semibold uppercase tracking-wider">{p.badge}</span>
+                )}
+              </div>
               <h3 className="font-heading text-lg font-semibold text-foreground mb-3 leading-snug">{p.title}</h3>
               <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed">{p.description}</p>
               <div className="flex flex-wrap gap-2 mb-5">
@@ -63,9 +74,11 @@ const ProjectsSection = () => {
                 <a href="#" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
                   <Github size={14} /> GitHub
                 </a>
-                <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
-                  <ExternalLink size={14} /> Live Demo
-                </a>
+                {p.showDemo && (
+                  <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                    <ExternalLink size={14} /> Live Demo
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
