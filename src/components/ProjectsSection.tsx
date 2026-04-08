@@ -19,6 +19,7 @@ const projects = [
     tags: ["Firebase", "Android", "Google Maps", "Real-time"],
     badge: "Academic Project",
     showDemo: false,
+    showGithub: false,
   },
   {
     title: "Object Detection Smart Glass (Hackathon)",
