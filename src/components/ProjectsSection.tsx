@@ -28,6 +28,7 @@ const projects = [
     tags: ["Python", "YOLO", "OpenCV", "MediaPipe", "AI/ML"],
     badge: "Academic Project",
     showDemo: false,
+    showGithub: false,
   },
 ];
 
