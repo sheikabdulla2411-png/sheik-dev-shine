@@ -10,6 +10,7 @@ const projects = [
     tags: ["MongoDB", "React", "Node.js", "REST API"],
     badge: null,
     showDemo: true,
+    showGithub: true,
   },
   {
     title: "Live Bus Tracking System",
@@ -18,6 +19,7 @@ const projects = [
     tags: ["Firebase", "Android", "Google Maps", "Real-time"],
     badge: "Academic Project",
     showDemo: false,
+    showGithub: false,
   },
   {
     title: "Object Detection Smart Glass (Hackathon)",
@@ -26,6 +28,7 @@ const projects = [
     tags: ["Python", "YOLO", "OpenCV", "MediaPipe", "AI/ML"],
     badge: "Academic Project",
     showDemo: false,
+    showGithub: false,
   },
 ];
 
@@ -71,9 +74,11 @@ const ProjectsSection = () => {
                 ))}
               </div>
               <div className="flex gap-3">
-                <a href="#" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
-                  <Github size={14} /> GitHub
-                </a>
+                {p.showGithub && (
+                  <a href="#" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                    <Github size={14} /> GitHub
+                  </a>
+                )}
                 {p.showDemo && (
                   <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
                     <ExternalLink size={14} /> Live Demo
