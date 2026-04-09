@@ -81,13 +81,15 @@ const ProjectsSection = () => {
               </div>
               <div className="flex gap-3">
                 {p.showGithub && (
-                  <a href="#" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                  <a href={p.githubLink} target="_blank" rel="noopener noreferrer" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
                     <Github size={14} /> GitHub
                   </a>
                 )}
                 {p.showDemo && (
-                  <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                  <a href={p.demoLink} target="_blank" rel="noopener noreferrer" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
                     <ExternalLink size={14} /> Live Demo
+                  </a>
+                )}
                   </a>
                 )}
               </div>
