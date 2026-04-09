@@ -22,6 +22,8 @@ const projects = [
     badge: "Academic Project",
     showDemo: false,
     showGithub: false,
+    demoLink: "#",
+    githubLink: "#",
   },
   {
     title: "Object Detection Smart Glass (Hackathon)",
@@ -31,6 +33,8 @@ const projects = [
     badge: "Academic Project",
     showDemo: false,
     showGithub: false,
+    demoLink: "#",
+    githubLink: "#",
   },
 ];
 
