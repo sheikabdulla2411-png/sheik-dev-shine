@@ -6,11 +6,13 @@ const projects = [
   {
     title: "Urban-Rural Village Development & Citizen Feedback System",
     stack: "MERN Stack (React, Node.js, Express, MongoDB)",
-    description: "Full-stack web platform for citizens to submit feedback on rural development. Role-based dashboards for admin, officials, and citizens.",
+    description: "A MERN stack web application for urban-rural village development and citizen feedback management. Features include complaint tracking, feedback system, and admin dashboard.",
     tags: ["MongoDB", "React", "Node.js", "REST API"],
     badge: null,
     showDemo: true,
     showGithub: true,
+    demoLink: "https://urban-village-frontend.netlify.app",
+    githubLink: "https://github.com/sheikabdulla2411-png/urban-village-frontend",
   },
   {
     title: "Live Bus Tracking System",
@@ -20,6 +22,8 @@ const projects = [
     badge: "Academic Project",
     showDemo: false,
     showGithub: false,
+    demoLink: "#",
+    githubLink: "#",
   },
   {
     title: "Object Detection Smart Glass (Hackathon)",
@@ -29,6 +33,8 @@ const projects = [
     badge: "Academic Project",
     showDemo: false,
     showGithub: false,
+    demoLink: "#",
+    githubLink: "#",
   },
 ];
 
@@ -75,12 +81,12 @@ const ProjectsSection = () => {
               </div>
               <div className="flex gap-3">
                 {p.showGithub && (
-                  <a href="#" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                  <a href={p.githubLink} target="_blank" rel="noopener noreferrer" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
                     <Github size={14} /> GitHub
                   </a>
                 )}
                 {p.showDemo && (
-                  <a href="#" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
+                  <a href={p.demoLink} target="_blank" rel="noopener noreferrer" className="btn-primary-glow text-xs py-2 px-4 flex items-center gap-1.5">
                     <ExternalLink size={14} /> Live Demo
                   </a>
                 )}
