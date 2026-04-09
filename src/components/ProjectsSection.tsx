@@ -90,8 +90,6 @@ const ProjectsSection = () => {
                     <ExternalLink size={14} /> Live Demo
                   </a>
                 )}
-                  </a>
-                )}
               </div>
             </motion.div>
           ))}
