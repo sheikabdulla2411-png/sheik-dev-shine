@@ -3,14 +3,15 @@ import { useRef } from "react";
 import { Search, Code, Gauge, FileCode, Globe, Database, Terminal, GitBranch, Flame, Cpu, Bug, BarChart3 } from "lucide-react";
 
 const seoSkills = [
-  { name: "Core Web Vitals", icon: Gauge, level: 90 },
-  { name: "Schema Markup", icon: FileCode, level: 85 },
-  { name: "Sitemap & Robots.txt", icon: Globe, level: 95 },
-  { name: "Log File Analysis", icon: BarChart3, level: 75 },
-  { name: "Page Speed Optimization", icon: Flame, level: 92 },
-  { name: "Structured Data", icon: Database, level: 88 },
-  { name: "Crawl Budget", icon: Bug, level: 80 },
-  { name: "Technical Audits", icon: Search, level: 85 },
+  { name: "Search Engine Optimization (SEO)", icon: Search, level: 92 },
+  { name: "Keyword Research", icon: Search, level: 88 },
+  { name: "On-Page SEO", icon: FileCode, level: 90 },
+  { name: "Off-Page SEO", icon: Globe, level: 85 },
+  { name: "Technical SEO", icon: Cpu, level: 88 },
+  { name: "Google Search Console", icon: Gauge, level: 90 },
+  { name: "Google Analytics", icon: BarChart3, level: 85 },
+  { name: "Link Building", icon: GitBranch, level: 80 },
+  { name: "Content Marketing", icon: Flame, level: 82 },
 ];
 
 const devSkills = [
