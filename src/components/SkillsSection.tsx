@@ -55,14 +55,14 @@ const seoCategories: { title: string; icon: any; skills: { name: string; icon: a
 ];
 
 const devSkills = [
-  { name: "React JS", icon: Code, level: 90 },
-  { name: "Node.js", icon: Terminal, level: 85 },
-  { name: "Python", icon: Code, level: 75 },
-  { name: "Express.js", icon: Cpu, level: 82 },
-  { name: "MongoDB", icon: Database, level: 80 },
-  { name: "Firebase", icon: Flame, level: 78 },
-  { name: "HTML / CSS", icon: FileCode, level: 95 },
-  { name: "Git & GitHub", icon: GitBranch, level: 88 },
+  { name: "React JS", icon: Code, level: 78 },
+  { name: "Node.js", icon: Terminal, level: 72 },
+  { name: "Python", icon: Code, level: 65 },
+  { name: "Express.js", icon: Cpu, level: 70 },
+  { name: "MongoDB", icon: Database, level: 68 },
+  { name: "Firebase", icon: Flame, level: 66 },
+  { name: "HTML / CSS", icon: FileCode, level: 79 },
+  { name: "Git & GitHub", icon: GitBranch, level: 75 },
 ];
 
 const SkillBar = ({ name, icon: Icon, level, delay, color }: { name: string; icon: any; level: number; delay: number; color: Color }) => {
@@ -136,14 +136,14 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <h3 className="font-heading text-xl font-semibold glow-text-violet mb-6 flex items-center gap-2">
-          <Code size={20} /> Developer Skills
+        <h3 className="font-heading text-base font-semibold glow-text-violet mb-4 flex items-center gap-2">
+          <Code size={16} /> Supporting Technical Skills
         </h3>
-        <div className="glass-card p-6 md:p-8">
-          <p className="text-sm text-muted-foreground mb-6">
-            My unique advantage: I don't just recommend SEO fixes — I ship them. Core Web Vitals, schema markup and URL restructuring, implemented in code.
+        <div className="glass-card p-5 md:p-6 max-w-3xl">
+          <p className="text-xs md:text-sm text-muted-foreground mb-5">
+            React &amp; full-stack development — used to implement SEO fixes directly (schema markup, Core Web Vitals, site structure) rather than just recommending them to a dev team.
           </p>
-          <div className="grid md:grid-cols-2 gap-x-10 gap-y-5">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
             {devSkills.map((s, i) => (
               <SkillBar key={s.name} {...s} delay={i * 0.06} color="violet" />
             ))}
