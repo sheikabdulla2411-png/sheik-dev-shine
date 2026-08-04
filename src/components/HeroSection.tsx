@@ -65,19 +65,22 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto lg:mx-0 mb-10"
           >
-            I build fast websites and make them rank.
+            I don't just recommend SEO fixes — I build and implement them myself.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center lg:justify-start"
           >
             <a href="#projects" className="btn-primary-glow flex items-center gap-2">
               <ArrowDown size={18} /> View My Work
             </a>
             <a href="https://drive.google.com/file/d/1sreXe6QQNrRZAKbXhMGMxvP0KlyxVvG8/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-outline-glow flex items-center gap-2">
-              <Download size={18} /> Download Resume
+              <Download size={18} /> Download Developer Resume
+            </a>
+            <a href={seoResume.url} target="_blank" rel="noopener noreferrer" download className="btn-outline-glow flex items-center gap-2">
+              <Download size={18} /> Download SEO Resume
             </a>
           </motion.div>
         </div>
