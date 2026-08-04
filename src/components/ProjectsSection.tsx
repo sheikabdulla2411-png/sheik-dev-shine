@@ -4,6 +4,17 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "SEO Tips for Beginners — Live SEO Blog",
+    stack: "Blogger, Google Search Console, GA4, Ubersuggest",
+    description: "My live SEO blog where I apply everything I learn — connected to Google Search Console and GA4, with real technical fixes documented: sitemap error resolution (indexed pages grew from 4 to 7), on-page optimization, and PageSpeed improvements (mobile score 71 to 96).",
+    tags: ["Blogger", "GSC", "GA4", "Ubersuggest", "Technical SEO"],
+    badge: "Featured",
+    showDemo: true,
+    showGithub: false,
+    demoLink: "https://seotipsforbeginners2026.blogspot.com",
+    githubLink: "#",
+  },
+  {
     title: "Urban-Rural Village Development & Citizen Feedback System",
     stack: "MERN Stack (React, Node.js, Express, MongoDB)",
     description: "A MERN stack web application for urban-rural village development and citizen feedback management. Features include complaint tracking, feedback system, and admin dashboard.",
@@ -13,17 +24,6 @@ const projects = [
     showGithub: true,
     demoLink: "https://urban-village-frontend.netlify.app",
     githubLink: "https://github.com/sheikabdulla2411-png/urban-village-frontend",
-  },
-  {
-    title: "SEO Tips for Beginners Blog",
-    stack: "Blogger, Google Search Console, Ubersuggest, Google Analytics",
-    description: "Personal SEO blog covering keyword research, on-page SEO, off-page SEO and technical SEO. Built and optimized using Google Search Console. Achieved 95/100 PageSpeed score.",
-    tags: ["Blogger", "GSC", "Ubersuggest", "Google Analytics"],
-    badge: null,
-    showDemo: true,
-    showGithub: false,
-    demoLink: "https://seotipsforbeginners2026.blogspot.com",
-    githubLink: "#",
   },
   {
     title: "Live Bus Tracking System",
