@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "SEO", href: "#seo" },
+  { label: "Blog", href: "https://seotipsforbeginners2026.blogspot.com", external: true },
   { label: "Contact", href: "#contact" },
 ];
 
