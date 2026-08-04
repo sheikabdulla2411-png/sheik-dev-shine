@@ -38,7 +38,7 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden glass-card mx-4 mt-2 p-4 rounded-xl flex flex-col gap-3">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors py-2">
+            <a key={l.href} href={l.href} {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors py-2">
               {l.label}
             </a>
           ))}
