@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download } from "lucide-react";
+import seoResume from "@/assets/seo-resume.pdf.asset.json";
 
-const roles = ["Technical SEO Developer", "Full Stack Developer", "MERN Stack Builder"];
+const roles = ["SEO Specialist", "Technical & On-Page SEO", "Full Stack Developer", "AEO / LLM SEO"];
 
 const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
