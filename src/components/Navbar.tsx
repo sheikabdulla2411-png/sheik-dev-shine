@@ -26,7 +26,7 @@ const Navbar = () => {
         <a href="#" className="font-heading text-xl font-bold glow-text">SA</a>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
+            <a key={l.href} href={l.href} {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
               {l.label}
             </a>
           ))}
