@@ -15,14 +15,16 @@ const Index = () => {
       <AnimatedBackground />
       
       <Navbar />
+      <main>
       <HeroSection />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <SEOSection />
       <ContactSection />
-      <footer className="relative z-10 py-8 text-center text-xs text-muted-foreground border-t border-border/30">
-        <p>© 2024 Sheik Abdulla. Built with passion & SEO in mind.</p>
+      </main>
+      <footer className="relative z-10 py-8 px-4 text-center text-xs text-muted-foreground border-t border-border/30">
+        <p>© 2026 Sheik Abdulla. Built with passion &amp; SEO in mind.</p>
       </footer>
       <BackToTop />
     </div>

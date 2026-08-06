@@ -31,14 +31,14 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
+        <button onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-menu" className="md:hidden text-foreground min-h-11 min-w-11 flex items-center justify-center -mr-2">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
       {open && (
-        <div className="md:hidden glass-card mx-4 mt-2 p-4 rounded-xl flex flex-col gap-3">
+        <div id="mobile-menu" className="md:hidden glass-card mx-4 mt-2 p-4 rounded-xl flex flex-col gap-1">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors py-2">
+            <a key={l.href} href={l.href} {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} onClick={() => setOpen(false)} className="text-base text-muted-foreground hover:text-primary transition-colors py-3 px-1 min-h-11 flex items-center">
               {l.label}
             </a>
           ))}

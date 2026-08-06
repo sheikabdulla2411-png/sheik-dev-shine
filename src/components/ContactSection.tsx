@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Github, Linkedin, Mail, Rocket } from "lucide-react";
+import { Send, Github, Linkedin, Mail, Rocket, Phone, Download } from "lucide-react";
+import seoResume from "@/assets/seo-resume.pdf.asset.json";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
@@ -57,7 +58,7 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
           <motion.form
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -107,7 +108,7 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass-card p-6 md:p-8 md:col-span-2 flex flex-col items-center justify-center gap-6"
+            className="glass-card p-6 md:p-8 md:col-span-2 flex flex-col items-center justify-center gap-5"
           >
             <p className="text-sm text-muted-foreground text-center">Connect with me</p>
             <div className="flex gap-4">
@@ -121,9 +122,20 @@ const ContactSection = () => {
                 <Mail size={20} />
               </a>
             </div>
-            <div className="text-xs text-muted-foreground text-center mt-4">
-              Pudukkottai, Tamil Nadu<br />India
+            <div className="w-full space-y-2 text-sm">
+              <a href="mailto:sheikabdulla2411@gmail.com" className="flex items-center gap-2 justify-center text-muted-foreground hover:text-primary transition-colors min-h-11 break-all">
+                <Mail size={16} className="text-primary shrink-0" /> sheikabdulla2411@gmail.com
+              </a>
+              <a href="tel:+919655884880" className="flex items-center gap-2 justify-center text-muted-foreground hover:text-primary transition-colors min-h-11">
+                <Phone size={16} className="text-primary shrink-0" /> +91 96558 84880
+              </a>
             </div>
+            <a href={seoResume.url} target="_blank" rel="noopener noreferrer" download className="btn-outline-glow gap-2 w-full">
+              <Download size={16} /> Download Resume
+            </a>
+            <address className="not-italic text-xs text-muted-foreground text-center">
+              Pudukkottai, Tamil Nadu<br />India
+            </address>
           </motion.div>
         </div>
       </div>

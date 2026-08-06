@@ -24,7 +24,8 @@ const AnimatedBackground = () => {
 
     const createParticles = () => {
       particles = [];
-      const count = Math.floor((canvas.width * canvas.height) / 25000);
+      const isSmall = window.innerWidth < 768;
+      const count = Math.floor((canvas.width * canvas.height) / (isSmall ? 70000 : 25000));
       for (let i = 0; i < count; i++) {
         const isText = Math.random() > 0.6;
         particles.push({
@@ -66,7 +67,14 @@ const AnimatedBackground = () => {
 
     resize();
     createParticles();
-    animate();
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      particles.forEach(() => {});
+      animate();
+      cancelAnimationFrame(animationId);
+    } else {
+      animate();
+    }
     window.addEventListener("resize", () => { resize(); createParticles(); });
 
     return () => {
