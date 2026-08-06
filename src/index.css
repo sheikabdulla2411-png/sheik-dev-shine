@@ -57,19 +57,33 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html, body {
+    @apply max-w-full overflow-x-hidden;
+  }
+
   body {
     @apply bg-background text-foreground font-body;
-    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Syne', sans-serif;
+    overflow-wrap: anywhere;
+  }
+
+  img {
+    @apply max-w-full h-auto;
   }
 
   ::selection {
     background: hsl(183 100% 50% / 0.3);
     color: hsl(210 40% 98%);
   }
+
 
   ::-webkit-scrollbar {
     width: 6px;
