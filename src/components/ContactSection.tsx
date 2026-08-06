@@ -39,7 +39,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative z-10">
+    <section id="contact" className="section-shell">
       <div className="container mx-auto max-w-4xl" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
