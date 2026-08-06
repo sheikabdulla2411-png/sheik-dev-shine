@@ -8,7 +8,7 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 px-4 relative z-10">
+    <section id="about" className="section-shell">
       <div className="container mx-auto max-w-4xl" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}

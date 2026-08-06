@@ -44,6 +44,16 @@ const seoCategories: { title: string; icon: any; skills: { name: string; icon: a
     ],
   },
   {
+    title: "Content SEO & CMS",
+    icon: Flame,
+    skills: [
+      { name: "Content SEO & blog optimization", icon: Flame, level: 88 },
+      { name: "Blogger", icon: Globe, level: 90 },
+      { name: "WordPress", icon: Globe, level: 80 },
+      { name: "AI tools for SEO workflows", icon: Sparkles, level: 85 },
+    ],
+  },
+  {
     title: "Emerging SEO (AEO / LLM SEO)",
     icon: Sparkles,
     skills: [
@@ -62,6 +72,7 @@ const devSkills = [
   { name: "MongoDB", icon: Database, level: 68 },
   { name: "Firebase", icon: Flame, level: 66 },
   { name: "HTML / CSS", icon: FileCode, level: 79 },
+  { name: "JavaScript (basics)", icon: Code, level: 62 },
   { name: "Git & GitHub", icon: GitBranch, level: 75 },
 ];
 
@@ -103,7 +114,7 @@ const SkillsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 px-4 relative z-10">
+    <section id="skills" className="section-shell">
       <div className="container mx-auto max-w-6xl" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -123,7 +134,7 @@ const SkillsSection = () => {
         <h3 className="font-heading text-xl font-semibold glow-text mb-6 flex items-center gap-2">
           <Search size={20} /> SEO Skills
         </h3>
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-12">
           {seoCategories.map((cat) => (
             <div key={cat.title} className="glass-card p-6 md:p-7 space-y-5">
               <h4 className="font-heading text-base font-semibold text-foreground flex items-center gap-2">
@@ -143,7 +154,7 @@ const SkillsSection = () => {
           <p className="text-xs md:text-sm text-muted-foreground mb-5">
             React &amp; full-stack development — used to implement SEO fixes directly (schema markup, Core Web Vitals, site structure) rather than just recommending them to a dev team.
           </p>
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
             {devSkills.map((s, i) => (
               <SkillBar key={s.name} {...s} delay={i * 0.06} color="violet" />
             ))}

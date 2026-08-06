@@ -57,19 +57,33 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html, body {
+    @apply max-w-full overflow-x-hidden;
+  }
+
   body {
     @apply bg-background text-foreground font-body;
-    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Syne', sans-serif;
+    overflow-wrap: anywhere;
+  }
+
+  img {
+    @apply max-w-full h-auto;
   }
 
   ::selection {
     background: hsl(183 100% 50% / 0.3);
     color: hsl(210 40% 98%);
   }
+
 
   ::-webkit-scrollbar {
     width: 6px;
@@ -121,7 +135,7 @@
   }
 
   .btn-primary-glow {
-    @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    @apply bg-primary text-primary-foreground font-semibold px-5 sm:px-6 py-3 rounded-lg transition-all duration-300 min-h-11 inline-flex items-center justify-center text-sm sm:text-base;
     box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
   }
 
@@ -131,7 +145,7 @@
   }
 
   .btn-outline-glow {
-    @apply border border-primary/50 text-primary font-semibold px-6 py-3 rounded-lg transition-all duration-300 bg-transparent;
+    @apply border border-primary/50 text-primary font-semibold px-5 sm:px-6 py-3 rounded-lg transition-all duration-300 bg-transparent min-h-11 inline-flex items-center justify-center text-sm sm:text-base;
   }
 
   .btn-outline-glow:hover {
@@ -166,12 +180,16 @@
     box-shadow: 0 0 15px hsl(var(--accent) / 0.15);
   }
 
+  .section-shell {
+    @apply py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative z-10;
+  }
+
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold mb-2 font-heading;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-2 font-heading;
   }
 
   .social-icon-btn {
-    @apply w-12 h-12 rounded-full flex items-center justify-center border border-border/50 bg-card/40 backdrop-blur-sm transition-all duration-300;
+    @apply w-12 h-12 min-h-11 min-w-11 rounded-full flex items-center justify-center border border-border/50 bg-card/40 backdrop-blur-sm transition-all duration-300;
   }
 
   .social-icon-btn:hover {
@@ -212,5 +230,40 @@
   @keyframes pulseGlow {
     0%, 100% { box-shadow: 0 0 15px hsl(var(--primary) / 0.4), 0 0 30px hsl(var(--primary) / 0.2), 0 0 60px hsl(var(--primary) / 0.1); }
     50% { box-shadow: 0 0 25px hsl(var(--primary) / 0.6), 0 0 50px hsl(var(--primary) / 0.3), 0 0 80px hsl(var(--primary) / 0.15); }
+  }
+}
+
+@layer utilities {
+  /* Reduce animation intensity on mobile and for reduced-motion users */
+  @media (max-width: 767px) {
+    .animate-gradient-mesh {
+      animation: none;
+    }
+    .profile-glow {
+      animation: none;
+      box-shadow: 0 0 18px hsl(var(--primary) / 0.35), 0 10px 30px hsl(230 20% 2% / 0.6);
+    }
+    .animate-float {
+      animation: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  .profile-frame {
+    @apply transition-transform duration-500;
+  }
+
+  @media (hover: hover) and (min-width: 768px) {
+    .profile-frame:hover {
+      transform: translateY(-6px) scale(1.03);
+    }
   }
 }
