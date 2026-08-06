@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download } from "lucide-react";
 import seoResume from "@/assets/seo-resume.pdf.asset.json";
-import profileImg from "@/assets/profile.jpg.asset.json";
 
 const roles = ["SEO Specialist", "Technical & On-Page SEO", "Full Stack Developer", "AEO / LLM SEO"];
 
@@ -94,10 +93,10 @@ const HeroSection = () => {
         >
           <div className="profile-frame w-40 h-40 min-[380px]:w-48 min-[380px]:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full border-[3px] border-primary overflow-hidden profile-glow">
             <img
-              src={profileImg.url}
+              src="/sheik-abdulla-profile.webp"
               alt="Sheik Abdulla, SEO Specialist and full stack developer, professional headshot"
-              width={576}
-              height={576}
+              width={640}
+              height={640}
               loading="eager"
               decoding="async"
               fetchPriority="high"
