@@ -68,7 +68,7 @@ const ProjectsSection = () => {
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-3" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
@@ -90,7 +90,7 @@ const ProjectsSection = () => {
                   <span key={t} className="text-xs px-2 py-1 rounded-md bg-muted text-muted-foreground">{t}</span>
                 ))}
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {p.showGithub && (
                   <a href={p.githubLink} target="_blank" rel="noopener noreferrer" className="btn-outline-glow text-xs py-2 px-4 flex items-center gap-1.5">
                     <Github size={14} /> GitHub
