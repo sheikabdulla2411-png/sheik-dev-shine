@@ -29,7 +29,7 @@ const AboutSection = () => {
           className="glass-card p-8 md:p-10"
         >
           <p className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
-            Final-year <strong className="text-foreground">B.Voc Software Development</strong> student and <strong className="glow-text">SEO Specialist</strong> — technical SEO, on-page optimization, keyword research, competitor analysis and AEO (Answer Engine Optimization) for AI search like ChatGPT, Gemini and Google AI Overview. Backed by full-stack skills in React, Node.js and Python, so I don't just recommend SEO fixes — I build and implement them myself.
+            <strong className="text-foreground">B.Voc Software Development</strong> graduate focused on <strong className="glow-text">SEO and Digital Marketing</strong>, with hands-on experience in technical SEO, on-page optimization, keyword research, competitor analysis and AEO (Answer Engine Optimization) for AI search like ChatGPT, Gemini and Google AI Overview. Backed by full-stack skills in React, Node.js and Python, so I don't just recommend SEO fixes — I build and implement them myself.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-6">

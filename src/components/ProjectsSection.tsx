@@ -4,6 +4,17 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "SEO Pulse",
+    stack: "Netlify, Daily SEO & AI Search Insights",
+    description: "An SEO & AI Search Insights platform built to publish practical SEO insights and monitor the evolving search landscape.",
+    tags: ["SEO", "AI Search", "Content", "Netlify"],
+    badge: "Featured",
+    showDemo: true,
+    showGithub: false,
+    demoLink: "https://seopulse-sheik.netlify.app/",
+    githubLink: "#",
+  },
+  {
     title: "SEO Tips for Beginners — Live SEO Blog",
     stack: "Blogger, Google Search Console, GA4, Ubersuggest",
     description: "My live SEO blog where I apply everything I learn — connected to Google Search Console and GA4, with real technical fixes documented: sitemap error resolution (indexed pages grew from 4 to 7), on-page optimization, and PageSpeed improvements (mobile score 71 to 96).",
