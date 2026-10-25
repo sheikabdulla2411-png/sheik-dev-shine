@@ -1,142 +1,110 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Send, Github, Linkedin, Mail, Rocket, Phone, Download } from "lucide-react";
-import seoResume from "@/assets/seo-resume.pdf.asset.json";
-import { useToast } from "@/hooks/use-toast";
+import { useState, type FormEvent } from "react";
+import Reveal from "./Reveal";
+
+// TODO: replace with the real Web3Forms access key
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_KEY";
 
 const ContactSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
-  const { toast } = useToast();
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSending(true);
+    const form = e.currentTarget;
+    setStatus("sending");
+
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const data = new FormData(form);
+      const json = Object.fromEntries(data.entries());
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "686e28e4-2b8c-4cce-bfef-cef7624c85c0",
-          name: form.name,
-          email: form.email,
-          message: form.message,
-        }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(json),
       });
-      const data = await response.json();
-      if (data.success) {
-        toast({ title: "Thanks! I'll get back to you soon 🚀" });
-        setForm({ name: "", email: "", message: "" });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
       } else {
-        toast({ title: "Something went wrong, please try again!", variant: "destructive" });
+        setStatus("error");
       }
     } catch {
-      toast({ title: "Something went wrong, please try again!", variant: "destructive" });
-    } finally {
-      setSending(false);
+      setStatus("error");
     }
   };
 
   return (
-    <section id="contact" className="section-shell">
-      <div className="container mx-auto max-w-4xl" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-heading">
-            Get In <span className="gradient-text">Touch</span>
-          </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-3" />
-          <p className="text-muted-foreground mt-4 flex items-center justify-center gap-2">
-            <Rocket size={16} className="text-primary" />
-            Open to Internships & Freelance Projects
-          </p>
-        </motion.div>
+    <section id="contact" className="section-divider section-block">
+      <div className="container-editorial">
+        <span className="section-label block mb-10 sm:mb-14">06 —</span>
+        <div className="grid gap-12 lg:gap-16 lg:grid-cols-[45%_1fr]">
+          {/* Left */}
+          <Reveal>
+            <div>
+              <h2 className="font-heading font-bold text-primary leading-[0.95] text-5xl sm:text-6xl md:text-7xl">
+                LET'S WORK
+                <br />
+                TOGETHER.
+              </h2>
+              <p className="mt-8 text-sm sm:text-base text-foreground/80 leading-relaxed max-w-md">
+                Open to freelance SEO projects, content collaborations, and consulting. Based in India. Working with UK
+                clients.
+              </p>
+              <a
+                href="mailto:sheikabdulla.co@gmail.com"
+                className="hover-underline inline-block mt-8 font-heading font-bold text-xl sm:text-2xl text-primary break-all"
+              >
+                sheikabdulla.co@gmail.com
+              </a>
+              <div className="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-sm text-accent">
+                <a href="https://www.linkedin.com/in/sheikabdulla-dev" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  LinkedIn ↗
+                </a>
+                <span className="text-muted-foreground" aria-hidden="true">·</span>
+                <a href="https://www.instagram.com/seowithsheik" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Instagram ↗
+                </a>
+              </div>
+            </div>
+          </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
-          <motion.form
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            onSubmit={handleSubmit}
-            className="glass-card p-6 md:p-8 md:col-span-3 space-y-5"
-          >
-            <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Name</label>
-              <input
-                type="text"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                required
-                className="w-full bg-muted/30 border border-border/50 rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Email</label>
-              <input
-                type="email"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                required
-                className="w-full bg-muted/30 border border-border/50 rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Message</label>
-              <textarea
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                required
-                rows={4}
-                className="w-full bg-muted/30 border border-border/50 rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all resize-none"
-                placeholder="Let's work together..."
-              />
-            </div>
-            <button type="submit" disabled={sending} className="btn-primary-glow flex items-center gap-2 w-full justify-center disabled:opacity-50">
-              <Send size={16} /> {sending ? "Sending..." : "Send Message"}
-            </button>
-          </motion.form>
+          {/* Right — form */}
+          <Reveal delay={0.15}>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+              <input type="hidden" name="subject" value="New Portfolio Contact — Sheik Abdulla" />
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass-card p-6 md:p-8 md:col-span-2 flex flex-col items-center justify-center gap-5"
-          >
-            <p className="text-sm text-muted-foreground text-center">Connect with me</p>
-            <div className="flex gap-4">
-              <a href="https://github.com/sheikabdulla2411-png" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
-                <Github size={20} />
-              </a>
-              <a href="https://www.linkedin.com/in/sheikabdulla-dev" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href="mailto:sheikabdulla2411@gmail.com" className="social-icon-btn" aria-label="Email">
-                <Mail size={20} />
-              </a>
-            </div>
-            <div className="w-full space-y-2 text-sm">
-              <a href="mailto:sheikabdulla2411@gmail.com" className="flex items-center gap-2 justify-center text-muted-foreground hover:text-primary transition-colors min-h-11 break-all">
-                <Mail size={16} className="text-primary shrink-0" /> sheikabdulla2411@gmail.com
-              </a>
-              <a href="tel:+919655884880" className="flex items-center gap-2 justify-center text-muted-foreground hover:text-primary transition-colors min-h-11">
-                <Phone size={16} className="text-primary shrink-0" /> +91 96558 84880
-              </a>
-            </div>
-            <a href={seoResume.url} target="_blank" rel="noopener noreferrer" download className="btn-outline-glow gap-2 w-full">
-              <Download size={16} /> Download Resume
-            </a>
-            <address className="not-italic text-xs text-muted-foreground text-center">
-              Pudukkottai, Tamil Nadu<br />India
-            </address>
-          </motion.div>
+              <div>
+                <label htmlFor="cf-name" className="form-label">Name</label>
+                <input id="cf-name" name="name" type="text" required placeholder="Your name" className="form-input" />
+              </div>
+              <div>
+                <label htmlFor="cf-email" className="form-label">Email</label>
+                <input id="cf-email" name="email" type="email" required placeholder="you@example.com" className="form-input" />
+              </div>
+              <div>
+                <label htmlFor="cf-subject" className="form-label">Subject</label>
+                <input id="cf-subject" name="subject_display" type="text" placeholder="What's this about?" className="form-input" />
+              </div>
+              <div>
+                <label htmlFor="cf-message" className="form-label">Message</label>
+                <textarea id="cf-message" name="message" required rows={4} placeholder="Tell me about your project…" className="form-input resize-none" />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="btn-gold-outline w-full disabled:opacity-60"
+              >
+                {status === "sending" ? "SENDING…" : "SEND MESSAGE →"}
+              </button>
+
+              {status === "success" && (
+                <p className="text-accent text-sm" role="status">✅ Message sent! I'll reply within 24 hours.</p>
+              )}
+              {status === "error" && (
+                <p className="text-destructive text-sm" role="alert">❌ Something went wrong. Please try again.</p>
+              )}
+            </form>
+          </Reveal>
         </div>
       </div>
     </section>
