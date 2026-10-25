@@ -1,32 +1,31 @@
-import AnimatedBackground from "@/components/AnimatedBackground";
-
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import TickerStrip from "@/components/TickerStrip";
 import AboutSection from "@/components/AboutSection";
+import WorkSection from "@/components/WorkSection";
 import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import SEOSection from "@/components/SEOSection";
+import CertificationsSection from "@/components/CertificationsSection";
+import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
-import BackToTop from "@/components/BackToTop";
+import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
-      <AnimatedBackground />
-      
+      <CustomCursor />
       <Navbar />
       <main>
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <SEOSection />
-      <ContactSection />
+        <HeroSection />
+        <TickerStrip />
+        <AboutSection />
+        <WorkSection />
+        <SkillsSection />
+        <CertificationsSection />
+        <BlogSection />
+        <ContactSection />
       </main>
-      <footer className="relative z-10 py-8 px-4 text-center text-xs text-muted-foreground border-t border-border/30">
-        <p>© 2026 Sheik Abdulla. Built with passion &amp; SEO in mind.</p>
-      </footer>
-      <BackToTop />
+      <Footer />
     </div>
   );
 };
