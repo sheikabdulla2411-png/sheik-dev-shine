@@ -1,55 +1,56 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+import SectionShell from "./SectionShell";
+import Reveal from "./Reveal";
+
+const tags = ["Technical SEO", "On-Page SEO", "AEO", "GEO", "GA4", "Core Web Vitals", "Schema Markup", "Content Strategy"];
 
 const AboutSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" className="section-shell">
-      <div className="container mx-auto max-w-4xl" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="section-heading">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-3" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-card p-8 md:p-10"
-        >
-          <p className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
-            <strong className="text-foreground">B.Voc Software Development</strong> graduate focused on <strong className="glow-text">SEO and Digital Marketing</strong>, with hands-on experience in technical SEO, on-page optimization, keyword research, competitor analysis and AEO (Answer Engine Optimization) for AI search like ChatGPT, Gemini and Google AI Overview. Backed by full-stack skills in React, Node.js and Python, so I don't just recommend SEO fixes — I build and implement them myself.
+    <SectionShell
+      id="about"
+      number="01"
+      heading="ABOUT"
+      leftNote={
+        <>
+          <p>Junior SEO Executive</p>
+          <p>Unified Web Services, UK</p>
+          <p>Pudukkottai, TN, India 🇮🇳</p>
+          <div className="mt-10 space-y-8">
+            <Reveal className="stat-block" delay={0.1}>
+              <p className="font-heading font-bold text-5xl text-primary leading-none">3+</p>
+              <p className="mt-2 text-xs sm:text-sm text-muted-foreground">UK Clients Served</p>
+            </Reveal>
+            <Reveal className="stat-block" delay={0.2}>
+              <p className="font-heading font-bold text-5xl text-primary leading-none">2x</p>
+              <p className="mt-2 text-xs sm:text-sm text-muted-foreground">Google Certified</p>
+            </Reveal>
+          </div>
+        </>
+      }
+    >
+      <Reveal>
+        <div className="text-[17px] sm:text-[19px] leading-[1.8] text-foreground/85 space-y-6">
+          <p>
+            I'm Sheik Abdulla — a Junior SEO Executive at Unified Web Services, a digital marketing agency based in
+            Basildon, Essex, UK. My background in Software Development (B.Voc, Alagappa University, 2026) gives me a
+            technical edge most SEO professionals don't have — I can read code, run crawl audits, and implement fixes
+            directly on site.
           </p>
+          <p>
+            I specialise in Technical SEO, On-Page Optimisation, Content Strategy, and Answer Engine Optimisation (AEO).
+            I've worked with UK clients across fitness, construction SaaS, and digital marketing, producing SEO content
+            that ranks.
+          </p>
+        </div>
+      </Reveal>
 
-          <div className="flex flex-wrap gap-4 mb-6">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <GraduationCap size={16} className="text-primary" />
-              <span>Alagappa University (2026)</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin size={16} className="text-primary" />
-              <span>Pudukkottai, Tamil Nadu</span>
-            </div>
-          </div>
-
-          <div className="inline-flex items-center gap-2 skill-pill">
-            <Sparkles size={14} />
-            Fun fact: Viva Survivor 🎓
-          </div>
-        </motion.div>
-      </div>
-    </section>
+      <Reveal delay={0.15}>
+        <div className="mt-10 flex flex-wrap gap-3">
+          {tags.map((t) => (
+            <span key={t} className="tag-pill">{t}</span>
+          ))}
+        </div>
+      </Reveal>
+    </SectionShell>
   );
 };
 
