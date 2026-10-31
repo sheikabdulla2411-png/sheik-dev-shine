@@ -1,89 +1,167 @@
-import SectionShell from "./SectionShell";
-import Reveal from "./Reveal";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Search, Code, Gauge, FileCode, Globe, Database, Terminal, GitBranch, Flame, Cpu, BarChart3, Sparkles, Link2 } from "lucide-react";
 
-interface SkillGroup {
-  label: string;
-  items: string[];
-}
+type Color = "cyan" | "violet";
 
-const groups: SkillGroup[] = [
+const seoCategories: { title: string; icon: any; skills: { name: string; icon: any; level: number }[] }[] = [
   {
-    label: "Technical SEO",
-    items: [
-      "Core Web Vitals",
-      "Site Audits (Screaming Frog)",
-      "Schema Markup & JSON-LD",
-      "robots.txt & XML Sitemaps",
-      "Crawlability & Indexation",
-      "Page Speed Optimisation",
-      "Mobile SEO",
+    title: "Technical SEO",
+    icon: Cpu,
+    skills: [
+      { name: "Sitemap & crawl error fixes", icon: Globe, level: 90 },
+      { name: "Core Web Vitals & PageSpeed", icon: Gauge, level: 90 },
+      { name: "Structured data / Schema markup", icon: FileCode, level: 88 },
+      { name: "Robots.txt & indexability audits", icon: Search, level: 88 },
     ],
   },
   {
-    label: "On-Page SEO",
-    items: [
-      "Keyword Research",
-      "Meta Tag Optimisation",
-      "Internal Linking Strategy",
-      "E-E-A-T Optimisation",
-      "Title & Heading Structure",
-      "Image Alt Tag Optimisation",
-      "Content Gap Analysis",
+    title: "On-Page SEO",
+    icon: FileCode,
+    skills: [
+      { name: "Meta titles & descriptions", icon: FileCode, level: 92 },
+      { name: "Heading structure (H1–H3)", icon: FileCode, level: 90 },
+      { name: "Internal linking", icon: Link2, level: 86 },
+      { name: "Content optimization", icon: Flame, level: 85 },
     ],
   },
   {
-    label: "SEO Tools",
-    items: [
-      "Google Search Console",
-      "Google Analytics 4 (GA4)",
-      "Ahrefs",
-      "SEMrush",
-      "Screaming Frog",
-      "Google Tag Manager",
-      "PageSpeed Insights",
-      "Ubersuggest",
+    title: "Keyword Research & Competitor Analysis",
+    icon: Search,
+    skills: [
+      { name: "Keyword research (Google Keyword Planner)", icon: Search, level: 88 },
+      { name: "Ubersuggest", icon: BarChart3, level: 85 },
+      { name: "Screaming Frog site crawls", icon: Cpu, level: 82 },
+      { name: "Competitor gap analysis", icon: GitBranch, level: 80 },
     ],
   },
   {
-    label: "Content & AEO / GEO",
-    items: [
-      "SEO Blog Writing (1000–1500 words)",
-      "Answer Engine Optimisation (AEO)",
-      "Generative Engine Optimisation (GEO)",
-      "FAQ Schema",
-      "Featured Snippet Targeting",
-      "Long-tail Keyword Strategy",
-      "WordPress (Rank Math, 80+ score)",
-      "Backlink Building (Medium, Substack, Blogger, JustPaste.it, Pearltrees)",
+    title: "Analytics & Reporting",
+    icon: BarChart3,
+    skills: [
+      { name: "Google Search Console", icon: Gauge, level: 90 },
+      { name: "Google Analytics 4 (GA4)", icon: BarChart3, level: 85 },
+    ],
+  },
+  {
+    title: "Content SEO & CMS",
+    icon: Flame,
+    skills: [
+      { name: "Content SEO & blog optimization", icon: Flame, level: 88 },
+      { name: "Blogger", icon: Globe, level: 90 },
+      { name: "WordPress", icon: Globe, level: 80 },
+      { name: "AI tools for SEO workflows", icon: Sparkles, level: 85 },
+    ],
+  },
+  {
+    title: "Emerging SEO (AEO / LLM SEO)",
+    icon: Sparkles,
+    skills: [
+      { name: "Answer Engine Optimization (AEO)", icon: Sparkles, level: 82 },
+      { name: "Optimizing for ChatGPT & Gemini", icon: Sparkles, level: 80 },
+      { name: "Google AI Overview optimization", icon: Search, level: 80 },
     ],
   },
 ];
 
-const SkillGroupBlock = ({ group, index }: { group: SkillGroup; index: number }) => (
-  <Reveal delay={index * 0.08}>
-    <div>
-      <h3 className="text-sm uppercase tracking-[0.2em] text-accent mb-5">{group.label}</h3>
-      <ul className="space-y-3 text-sm sm:text-base text-foreground/85">
-        {group.items.map((item) => (
-          <li key={item} className="flex gap-3">
-            <span className="text-muted-foreground shrink-0" aria-hidden="true">—</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </Reveal>
-);
+const devSkills = [
+  { name: "React JS", icon: Code, level: 78 },
+  { name: "Node.js", icon: Terminal, level: 72 },
+  { name: "Python", icon: Code, level: 65 },
+  { name: "Express.js", icon: Cpu, level: 70 },
+  { name: "MongoDB", icon: Database, level: 68 },
+  { name: "Firebase", icon: Flame, level: 66 },
+  { name: "HTML / CSS", icon: FileCode, level: 79 },
+  { name: "JavaScript (basics)", icon: Code, level: 62 },
+  { name: "Git & GitHub", icon: GitBranch, level: 75 },
+];
+
+const SkillBar = ({ name, icon: Icon, level, delay, color }: { name: string; icon: any; level: number; delay: number; color: Color }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const pillClass = color === "cyan" ? "skill-pill" : "skill-pill-violet";
+  const barColor = color === "cyan" ? "bg-primary" : "bg-accent";
+  const barShadow = color === "cyan" ? "shadow-[0_0_10px_hsl(183_100%_50%/0.4)]" : "shadow-[0_0_10px_hsl(263_84%_52%/0.4)]";
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: color === "cyan" ? -20 : 20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.5, delay }}
+      className="space-y-2"
+    >
+      <div className="flex items-center justify-between gap-3">
+        <span className={`${pillClass} flex items-center gap-2`}>
+          <Icon size={14} /> {name}
+        </span>
+        <span className="text-xs text-muted-foreground shrink-0">{level}%</span>
+      </div>
+      <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={inView ? { width: `${level}%` } : {}}
+          transition={{ duration: 1, delay: delay + 0.2, ease: "easeOut" }}
+          className={`h-full rounded-full ${barColor} ${barShadow}`}
+        />
+      </div>
+    </motion.div>
+  );
+};
 
 const SkillsSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <SectionShell id="skills" number="03" heading="WHAT I DO">
-      <div className="grid sm:grid-cols-2 gap-x-12 gap-y-12">
-        {groups.map((g, i) => (
-          <SkillGroupBlock key={g.label} group={g} index={i} />
-        ))}
+    <section id="skills" className="section-shell">
+      <div className="container mx-auto max-w-6xl" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="section-heading">
+            My <span className="gradient-text">Skills</span>
+          </h2>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-3" />
+          <p className="text-muted-foreground text-sm md:text-base mt-5 max-w-2xl mx-auto">
+            Full-spectrum SEO — technical, on-page, research, analytics and AEO — plus the development skills to implement every fix myself.
+          </p>
+        </motion.div>
+
+        <h3 className="font-heading text-xl font-semibold glow-text mb-6 flex items-center gap-2">
+          <Search size={20} /> SEO Skills
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-12">
+          {seoCategories.map((cat) => (
+            <div key={cat.title} className="glass-card p-6 md:p-7 space-y-5">
+              <h4 className="font-heading text-base font-semibold text-foreground flex items-center gap-2">
+                <cat.icon size={18} className="text-primary" /> {cat.title}
+              </h4>
+              {cat.skills.map((s, i) => (
+                <SkillBar key={s.name} {...s} delay={i * 0.06} color="cyan" />
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <h3 className="font-heading text-base font-semibold glow-text-violet mb-4 flex items-center gap-2">
+          <Code size={16} /> Supporting Technical Skills
+        </h3>
+        <div className="glass-card p-5 md:p-6 max-w-3xl">
+          <p className="text-xs md:text-sm text-muted-foreground mb-5">
+            React &amp; full-stack development — used to implement SEO fixes directly (schema markup, Core Web Vitals, site structure) rather than just recommending them to a dev team.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            {devSkills.map((s, i) => (
+              <SkillBar key={s.name} {...s} delay={i * 0.06} color="violet" />
+            ))}
+          </div>
+        </div>
       </div>
-    </SectionShell>
+    </section>
   );
 };
 
