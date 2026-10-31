@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Search, Code, Gauge, FileCode, Globe, Database, Terminal, GitBranch, Flame, Cpu, BarChart3, Sparkles, Link2 } from "lucide-react";
+import { Search, Gauge, FileCode, Globe, GitBranch, Flame, Cpu, BarChart3, Sparkles, Link2 } from "lucide-react";
 
 type Color = "cyan" | "violet";
 
@@ -64,17 +64,6 @@ const seoCategories: { title: string; icon: any; skills: { name: string; icon: a
   },
 ];
 
-const devSkills = [
-  { name: "React JS", icon: Code, level: 78 },
-  { name: "Node.js", icon: Terminal, level: 72 },
-  { name: "Python", icon: Code, level: 65 },
-  { name: "Express.js", icon: Cpu, level: 70 },
-  { name: "MongoDB", icon: Database, level: 68 },
-  { name: "Firebase", icon: Flame, level: 66 },
-  { name: "HTML / CSS", icon: FileCode, level: 79 },
-  { name: "JavaScript (basics)", icon: Code, level: 62 },
-  { name: "Git & GitHub", icon: GitBranch, level: 75 },
-];
 
 const SkillBar = ({ name, icon: Icon, level, delay, color }: { name: string; icon: any; level: number; delay: number; color: Color }) => {
   const ref = useRef(null);
@@ -145,20 +134,6 @@ const SkillsSection = () => {
               ))}
             </div>
           ))}
-        </div>
-
-        <h3 className="font-heading text-base font-semibold glow-text-violet mb-4 flex items-center gap-2">
-          <Code size={16} /> Supporting Technical Skills
-        </h3>
-        <div className="glass-card p-5 md:p-6 max-w-3xl">
-          <p className="text-xs md:text-sm text-muted-foreground mb-5">
-            React &amp; full-stack development — used to implement SEO fixes directly (schema markup, Core Web Vitals, site structure) rather than just recommending them to a dev team.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-            {devSkills.map((s, i) => (
-              <SkillBar key={s.name} {...s} delay={i * 0.06} color="violet" />
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Github, Linkedin, Mail, Rocket, Phone, Download } from "lucide-react";
+import { Send, Github, Linkedin, Mail, Phone, Download } from "lucide-react";
 import seoResume from "@/assets/seo-resume.pdf.asset.json";
 import { useToast } from "@/hooks/use-toast";
 
@@ -52,10 +52,6 @@ const ContactSection = () => {
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mt-3" />
-          <p className="text-muted-foreground mt-4 flex items-center justify-center gap-2">
-            <Rocket size={16} className="text-primary" />
-            Open to Internships & Freelance Projects
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
@@ -134,7 +130,7 @@ const ContactSection = () => {
               <Download size={16} /> Download Resume
             </a>
             <address className="not-italic text-xs text-muted-foreground text-center">
-              Pudukkottai, Tamil Nadu<br />India
+              From Pudukkottai, Tamil Nadu
             </address>
           </motion.div>
         </div>
