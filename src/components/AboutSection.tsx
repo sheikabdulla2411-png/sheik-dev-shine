@@ -29,7 +29,7 @@ const AboutSection = () => {
           className="glass-card p-8 md:p-10"
         >
           <p className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
-            <strong className="text-foreground">B.Voc Software Development</strong> graduate focused on <strong className="glow-text">SEO and Digital Marketing</strong>, with hands-on experience in technical SEO, on-page optimization, keyword research, competitor analysis and AEO (Answer Engine Optimization) for AI search like ChatGPT, Gemini and Google AI Overview. Backed by full-stack skills in React, Node.js and Python, so I don't just recommend SEO fixes — I build and implement them myself.
+            <strong className="text-foreground">Junior SEO Executive</strong> focused on <strong className="glow-text">technical SEO, on-page optimization</strong>, keyword research, competitor analysis and AEO (Answer Engine Optimization) for AI search like ChatGPT, Gemini and Google AI Overview — with hands-on experience in content strategy and analytics.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-6">
@@ -39,13 +39,8 @@ const AboutSection = () => {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin size={16} className="text-primary" />
-              <span>Pudukkottai, Tamil Nadu</span>
+              <span>From Pudukkottai, Tamil Nadu</span>
             </div>
-          </div>
-
-          <div className="inline-flex items-center gap-2 skill-pill">
-            <Sparkles size={14} />
-            Fun fact: Viva Survivor 🎓
           </div>
         </motion.div>
       </div>
