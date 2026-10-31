@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Search, Code, Gauge, FileCode, Globe, Database, Terminal, GitBranch, Flame, Cpu, BarChart3, Sparkles, Link2 } from "lucide-react";
+import { Search, Gauge, FileCode, Globe, GitBranch, Flame, Cpu, BarChart3, Sparkles, Link2 } from "lucide-react";
 
 type Color = "cyan" | "violet";
 

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Github, Linkedin, Mail, Rocket, Phone, Download } from "lucide-react";
+import { Send, Github, Linkedin, Mail, Phone, Download } from "lucide-react";
 import seoResume from "@/assets/seo-resume.pdf.asset.json";
 import { useToast } from "@/hooks/use-toast";
 

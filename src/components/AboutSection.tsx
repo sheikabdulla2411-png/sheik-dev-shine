@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, MapPin, Sparkles } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 
 const AboutSection = () => {
   const ref = useRef(null);
